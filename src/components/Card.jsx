@@ -8,8 +8,8 @@ const Card = ({book}) => {
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2">{book.bookName}</div>
                         <p className="text-gray-700 text-base">
-                            {book.bookSubtitle} <br /><br />
-                            <b><i>- By {book.bookAuthor}</i></b>
+                            <i>{book.bookMoto}</i> <br /><br/>
+                            - By {book.bookAuthor}
                         </p>
                     </div>
                     <div className="px-6 py-4">

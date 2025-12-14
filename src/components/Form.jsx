@@ -96,9 +96,9 @@ const Form = ({type,id}) => {
                             </div>
 
                             <div className="col-span-full">
-                                <label htmlFor="bookSubtitle" className="block text-sm/6 font-medium text-gray-900">Book Subtitle</label>
+                                <label htmlFor="bookMoto" className="block text-sm/6 font-medium text-gray-900">Book Moto</label>
                                 <div className="mt-2">
-                                    <textarea onChange={handleChange} value={book.bookSubtitle} id="bookSubtitle" name="bookSubtitle" rows="3" placeholder="Write a few sentences about the book..." className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required={type === "Create"}></textarea>
+                                    <textarea onChange={handleChange} value={book.bookMoto} id="bookMoto" name="bookMoto" rows="3" placeholder="Write a few sentences about the book..." className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" required={type === "Create"}></textarea>
                                 </div>
                             </div>
 

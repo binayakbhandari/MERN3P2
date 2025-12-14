@@ -6,23 +6,23 @@ import axios from "axios"
 const SingleProduct = () => {
     const { id } = useParams()
     const [book, setBook] = useState({})
-    const navigate =  useNavigate()
+    const navigate = useNavigate()
     const fetchBook = async () => {
         const response = await axios.get(`http://localhost:3000/book/${id}`)
-        if(response.status === 200){
+        if (response.status === 200) {
             setBook(response.data.data)
         }
     }
     const deleteBook = async () => {
         const response = await axios.delete(`http://localhost:3000/book/${id}`)
-        if(response.status === 200){
+        if (response.status === 200) {
             // Book deleted successfully
             navigate("/")
         } else {
-            alert("Error deleting the book" )
+            alert("Error deleting the book")
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         fetchBook()
     }, [])
 
@@ -39,30 +39,30 @@ const SingleProduct = () => {
                                 </div>
                                 <div className="flex overflow-hidden -mx-2 mb-4">
                                     <div className="w-1/2 px-2">
-                                    <Link to="/" >
-                                        <button className="w-full bg-green-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-green-700 dark:hover:bg-gray-700 cursor-pointer transition duration-200">Back</button>
+                                        <Link to="/" >
+                                            <button className="w-full bg-green-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-green-700 dark:hover:bg-gray-700 cursor-pointer transition duration-200">Back</button>
                                         </Link>
                                     </div>
 
                                     <div className="w-1/2 px-2">
-                                    <Link to='' >
-                                        <button onClick={deleteBook} className="w-full bg-red-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-700 dark:hover:bg-gray-700 cursor-pointer transition duration-200">Delete</button>
+                                        <Link to='' >
+                                            <button onClick={deleteBook} className="w-full bg-red-600 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-red-700 dark:hover:bg-gray-700 cursor-pointer transition duration-200">Delete</button>
                                         </Link>
                                     </div>
-                                    
+
                                     <div className="w-1/2 px-2">
-                                    <Link to={`/edit/${id}`} >
-                                        <button className="w-full bg-indigo-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-indigo-700 dark:hover:bg-gray-600 cursor-pointer transition duration-200">Edit Book</button>
-                                    </Link>
+                                        <Link to={`/edit/${id}`} >
+                                            <button className="w-full bg-indigo-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-indigo-700 dark:hover:bg-gray-600 cursor-pointer transition duration-200">Edit Book</button>
+                                        </Link>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div className="md:flex-1 px-4">
                                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">{book.bookName}</h2>
                                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                                    <i>{book.bookSubtitle}</i> <br />
-                                    - by {book.bookAuthor} 
+                                    <b>- {book.bookAuthor}</b> <br /> <br />
+                                    <i>" {book.bookMoto} "</i>
                                 </p>
                                 <div className="flex mb-4">
                                     <div className="mr-4">
@@ -77,11 +77,10 @@ const SingleProduct = () => {
                                 <div>
                                     <span className="font-bold text-gray-700 dark:text-gray-300">Book Description:</span>
                                     <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                                        sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
-                                        lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
-                                        ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
-                                        sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                                        "{ book.bookName }" written by { book.bookAuthoruthor } is a well-structured and thoughtfully crafted book designed to provide readers with clear understanding and valuable knowledge. This book covers essential concepts in a simple and engaging manner, making it suitable for both beginners and experienced readers.<br/>
+                                        Throughout the book, the author explains ideas with clarity, real-world examples, and practical insights that help readers easily connect theory with application. Each chapter is organized to build understanding step by step, ensuring a smooth and enjoyable reading experience.<br/>
+                                        Whether you are reading to improve your skills, expand your knowledge, or simply enjoy quality content, "{ book.bookName }" offers meaningful lessons that remain useful beyond the final page. This book is an excellent choice for anyone to learn, grow, and be inspired.
+
                                     </p>
                                 </div>
                             </div>
