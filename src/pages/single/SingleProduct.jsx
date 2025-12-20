@@ -35,7 +35,9 @@ const SingleProduct = () => {
                         <div className="flex flex-col md:flex-row -mx-4">
                             <div className="md:flex-1 px-4">
                                 <div className="h-115 rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                                    <img className="rounded-md w-full h-full object-cover" src={book.bookImage} alt="Product Image" />
+                                    <a href={`${book.bookImage}`} target="_blank" rel="noopener noreferrer">
+                                        <img className="rounded-md w-full h-full object-cover" src={book.bookImage} alt="Product Image"/>
+                                    </a>
                                 </div>
                                 <div className="flex overflow-hidden -mx-2 mb-4">
                                     <div className="w-1/2 px-2">
