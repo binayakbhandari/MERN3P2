@@ -125,7 +125,7 @@ const Form = ({type,id}) => {
                             <Link to={`/${type === "Create" ? "" : `book/${id}`}`} >
                                 <button type="button" className="text-sm/6 font-semibold rounded-md px-5 py-2 bg-red-500 text-white cursor-pointer hover:bg-red-600 transition duration-200">Cancel</button>
                             </Link>
-                            <button type="submit" className="rounded-md bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer transition duration-200">{type === "Create" ? "Create Book" : "Save Changes"}</button>
+                            <button type="submit" className="rounded-md bg-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer transition duration-200">{type === "Create" ? "Create" : "Save"}</button>
                         </div>
                     </div>
                 </div>
