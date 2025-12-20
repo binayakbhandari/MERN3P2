@@ -1,56 +1,118 @@
-import { FaHome, FaBook} from "react-icons/fa";
+
+import { useState } from "react";
+import { FaHome, FaBook, FaBars, FaTimes } from "react-icons/fa";
 import { ImBooks } from "react-icons/im";
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom";
 import { MdPermContactCalendar } from "react-icons/md";
 
 const Navbar = () => {
+    const location = useLocation();
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    const links = [
+        { to: "/", label: "Home", icon: <FaHome /> },
+        { to: "/create", label: "Add Book", icon: <FaBook /> },
+        { to: "/buy", label: "Buy Books", icon: <ImBooks /> },
+        { to: "/contact", label: "Contact", icon: <MdPermContactCalendar /> },
+    ];
+
+    const toggleMobileMenu = () => setMobileOpen(!mobileOpen);
+
     return (
-        <>
-            <nav className="relative bg-gray-800">
-                <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-                    <div className="relative flex h-16 items-center justify-between">
-                        <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                            {/* Mobile menu button */}
-                            <button type="button" command="--toggle" commandfor="mobile-menu" className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
-                                <span className="absolute -inset-0.5"></span>
-                                <span className="sr-only">Open main menu</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6 in-aria-expanded:hidden">
-                                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6 not-in-aria-expanded:hidden">
-                                    <path d="M6 18 18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                            <div className="flex shrink-0 items-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" alt="Your Company" className="h-8 w-auto" />
-                            </div>
-                            <div className="hidden sm:ml-6 sm:block">
-                                <div className="flex justify-center items-center space-x-8">
-                                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" */}
-                                    <Link to="/" aria-current="page" className="flex gap-2 items-center rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-950">Home <FaHome /></Link>
-                                    <Link to="/create" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Add Book <FaBook /></Link>
-                                    <Link to="/buy" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Buy Books <ImBooks /></Link>
-                                    <Link to="/contact" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact <MdPermContactCalendar /></Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            {/* Profile dropdown */}
-                            <el-dropdown className="relative ml-3">
-                                <button className="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-                                    <span className="absolute -inset-1.5"></span>
-                                    <span className="sr-only">Open user menu</span>
-                                    <img src="https://avatars.githubusercontent.com/u/173297872?s=400&v=4" alt="" className="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10" />
-                                </button>
-                            </el-dropdown>
-                        </div>
+        <nav className="bg-white text-gray-800 shadow-md">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex h-16 justify-between items-center">
+                    {/* Logo */}
+                    <div className="flex-shrink-0 flex items-center">
+                        <Link to="/">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+                                alt="Logo"
+                                className="h-8 w-auto float-animation"
+                            />
+                        </Link>
+                        <style>
+                            {`
+              @keyframes floatAnim {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-5px); }
+              }
+              .float-animation {
+                animation: floatAnim 3s ease-in-out infinite;
+              }
+              `}
+                        </style>
+                    </div>
+
+                    {/* Desktop Links */}
+                    <div className="hidden sm:flex sm:space-x-10">
+                        {links.map((link) => {
+                            const isActive = location.pathname === link.to;
+                            return (
+                                <Link
+                                    key={link.to}
+                                    to={link.to}
+                                    className={`flex gap-2 items-center px-3 py-2 rounded-md text-sm font-medium ${isActive
+                                            ? "bg-gray-800 text-white"
+                                            : "text-gray-800 hover:bg-gray-800 hover:text-white"
+                                        }`}
+                                >
+                                    {link.label} {link.icon}
+                                </Link>
+                            );
+                        })}
+                    </div>
+
+                    {/* Profile & Mobile Toggle */}
+                    <div className="flex items-center">
+                        {/* Mobile menu button */}
+                        <button
+                            onClick={toggleMobileMenu}
+                            className="sm:hidden p-2 rounded-md text-gray-800 hover:bg-gray-200 focus:outline-none"
+                        >
+                            {mobileOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                        </button>
+
+                        {/* Profile Avatar */}
+                        <a
+                            href="https://github.com/binayakbhandari"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ml-4"
+                        >
+                            <img
+                                src="https://avatars.githubusercontent.com/u/173297872?s=400&v=4"
+                                alt="Profile"
+                                className="h-8 w-8 rounded-full bg-gray-200 outline outline-1 outline-gray-300"
+                            />
+                        </a>
                     </div>
                 </div>
-            </nav>
-        </>
-    )
-}
+            </div>
 
-export default Navbar
+            {/* Mobile Menu */}
+            {mobileOpen && (
+                <div className="sm:hidden px-2 pt-2 pb-3 space-y-1 bg-white shadow-md">
+                    {links.map((link) => {
+                        const isActive = location.pathname === link.to;
+                        return (
+                            <Link
+                                key={link.to}
+                                to={link.to}
+                                onClick={() => setMobileOpen(false)}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium ${isActive
+                                        ? "bg-gray-800 text-white"
+                                        : "text-gray-800 hover:bg-gray-800 hover:text-white"
+                                    }`}
+                            >
+                                {link.label} {link.icon}
+                            </Link>
+                        );
+                    })}
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default Navbar;
