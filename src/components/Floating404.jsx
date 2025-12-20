@@ -1,12 +1,14 @@
 
 
-const Floating404 = () => {
+const Floating404 = ({text}) => {
   return (
     <div className="flex flex-col items-center justify-center mt-20 mb-20 text-center">
       
       <h1 className="text-9xl font-extrabold text-red-500 float">404</h1>
       <p className="text-2xl font-semibold mt-4 float">Error</p>
-      <p className="text-lg text-gray-500 mt-2 float">Books Not Found</p>
+      <p className="text-lg text-gray-500 mt-2 float">
+        {text || "No Books Found. Please check back later."}
+      </p>
 
       {/* Inline styles for floating animation */}
       <style>

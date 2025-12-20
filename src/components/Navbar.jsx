@@ -31,8 +31,8 @@ const Navbar = () => {
                                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" */}
                                     <Link to="/" aria-current="page" className="flex gap-2 items-center rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-950">Home <FaHome /></Link>
                                     <Link to="/create" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Add Book <FaBook /></Link>
-                                    <Link to="#" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Buy Books <ImBooks /></Link>
-                                    <Link to="#" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact <MdPermContactCalendar /></Link>
+                                    <Link to="/buy" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Buy Books <ImBooks /></Link>
+                                    <Link to="/contact" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact <MdPermContactCalendar /></Link>
                                 </div>
                             </div>
                         </div>
