@@ -26,9 +26,9 @@ const Navbar = () => {
                     <div className="flex-shrink-0 flex items-center">
                         <Link to="/">
                             <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+                                src="https://www.krishangtechnolab.com/wp-content/uploads/2023/03/mern-stack-technologies-1.png"
                                 alt="Logo"
-                                className="h-8 w-auto float-animation"
+                                className="h-8 w-auto "
                             />
                         </Link>
                         <style>
