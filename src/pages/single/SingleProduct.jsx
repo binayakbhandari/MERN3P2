@@ -54,7 +54,7 @@ const SingleProduct = () => {
 
                                     <div className="w-1/2 px-2">
                                         <Link to={`/edit/${id}`} >
-                                            <button className="w-full bg-indigo-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-indigo-700 dark:hover:bg-gray-600 cursor-pointer transition duration-200">Edit Book</button>
+                                            <button className="w-full bg-indigo-600 dark:bg-gray-700 text-white dark:text-white py-2 px-4 rounded-full font-bold hover:bg-indigo-700 dark:hover:bg-gray-600 cursor-pointer transition duration-200">Edit</button>
                                         </Link>
                                     </div>
 
