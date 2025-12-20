@@ -29,10 +29,10 @@ const Navbar = () => {
                             <div className="hidden sm:ml-6 sm:block">
                                 <div className="flex justify-center items-center space-x-8">
                                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" */}
-                                    <Link to="/" aria-current="page" className="flex gap-2 items-center rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-950">Home <FaHome /></Link>
-                                    <Link to="/create" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Add Book <FaBook /></Link>
-                                    <Link to="/buy" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Buy Books <ImBooks /></Link>
-                                    <Link to="/contact" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact <MdPermContactCalendar /></Link>
+                                    <Link to="https://book-management-brown.vercel.app/" aria-current="page" className="flex gap-2 items-center rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white hover:bg-gray-950">Home <FaHome /></Link>
+                                    <Link to="https://book-management-brown.vercel.app/create" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Add Book <FaBook /></Link>
+                                    <Link to="https://book-management-brown.vercel.app/buy" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Buy Books <ImBooks /></Link>
+                                    <Link to="https://book-management-brown.vercel.app/contact" className="flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact <MdPermContactCalendar /></Link>
                                 </div>
                             </div>
                         </div>
