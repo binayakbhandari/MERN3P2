@@ -13,12 +13,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='https://book-management-brown.vercel.app/' element={<Home />} />
-          <Route path='https://book-management-brown.vercel.app/create' element={<CreateProduct />} />
-          <Route path='https://book-management-brown.vercel.app/edit/:id' element={<EditProduct />} />
-          <Route path='https://book-management-brown.vercel.app/book/:id' element={<SingleProduct />} />
-          <Route path='https://book-management-brown.vercel.app/buy' element={<Buy />} />
-          <Route path='https://book-management-brown.vercel.app/contact' element={<Contact />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/create' element={<CreateProduct />} />
+          <Route path='/edit/:id' element={<EditProduct />} />
+          <Route path='/book/:id' element={<SingleProduct />} />
+          <Route path='/buy' element={<Buy />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </BrowserRouter>
     </>
