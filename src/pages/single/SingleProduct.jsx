@@ -8,13 +8,13 @@ const SingleProduct = () => {
     const [book, setBook] = useState({})
     const navigate = useNavigate()
     const fetchBook = async () => {
-        const response = await axios.get(`http://localhost:3000/book/${id}`)
+        const response = await axios.get(`https://nodejs-crud-practice.onrender.com/book/${id}`)
         if (response.status === 200) {
             setBook(response.data.data)
         }
     }
     const deleteBook = async () => {
-        const response = await axios.delete(`http://localhost:3000/book/${id}`)
+        const response = await axios.delete(`https://nodejs-crud-practice.onrender.com/book/${id}`)
         if (response.status === 200) {
             // Book deleted successfully
             navigate("/")

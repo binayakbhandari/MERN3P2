@@ -8,7 +8,7 @@ const Form = ({type,id}) => {
     const [book, setBook] = useState({})
 
     const fetchBookData = async () => {
-        const response = await axios.get(`http://localhost:3000/book/${id}`)
+        const response = await axios.get(`https://nodejs-crud-practice.onrender.com/book/${id}`)
         if(response.status === 200){
             setBook(response.data.data)
         }   
@@ -31,7 +31,7 @@ const Form = ({type,id}) => {
     const createBook = async (e) => {
         e.preventDefault()
         if (type === "Create") {
-            const response = await axios.post("http://localhost:3000/book", book, 
+            const response = await axios.post("https://nodejs-crud-practice.onrender.com/book", book, 
                 {
                     headers : {
                         "Content-Type" : "multipart/form-data"
@@ -45,7 +45,7 @@ const Form = ({type,id}) => {
             }
         } 
         else {
-            const response = await axios.patch(`http://localhost:3000/book/${id}`, book,
+            const response = await axios.patch(`https://nodejs-crud-practice.onrender.com/book/${id}`, book,
                 {
                     headers : {
                         "Content-Type" : "multipart/form-data"
